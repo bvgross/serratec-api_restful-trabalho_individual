@@ -46,11 +46,11 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
         WebRequest request) {
 
         List<String> erros = new ArrayList<>();
-        erros.add("Valor do ENUM inválido: " + ex.getMostSpecificCause().getMessage());
+        erros.add(ex.getMostSpecificCause().getMessage());
 
         return super.handleExceptionInternal(
             ex,
-            new ResponseFuncionarioException(status.value(), "Campos inválidos, confira.", LocalDateTime.now(), erros),
+            new ResponseFuncionarioException(status.value(), "JSON mal formatado ou campos inválidos, confira.", LocalDateTime.now(), erros),
             headers,
             status,
             request
