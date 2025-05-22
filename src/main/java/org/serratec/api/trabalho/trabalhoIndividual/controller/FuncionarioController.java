@@ -44,7 +44,7 @@ public class FuncionarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Funcionario> editarFuncionario(@Valid @PathVariable Long id, @RequestBody Funcionario funcionario) {
+    public ResponseEntity<Funcionario> editarFuncionario(@PathVariable Long id,@Valid @RequestBody Funcionario funcionario) {
         Funcionario f = funcionarioService.editar(id, funcionario);
         if (f != null) {
             return ResponseEntity.ok(f);
